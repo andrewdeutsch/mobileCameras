@@ -17,6 +17,8 @@ var constraints = window.constraints = {
   video: true
 };
 
+
+
 function handleSuccess(stream) {
   var videoTracks = stream.getVideoTracks();
   console.log('Got stream with constraints:', constraints);

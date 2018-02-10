@@ -1,7 +1,13 @@
 
 
 div#container {
+  position: relative;
+}
 
+.images{
+  left:50%;
+  z-index: 2;
+  position: relative;
 }
 
 .video {
@@ -12,4 +18,5 @@ div#container {
   left: 0;
   overflow: hidden;
   margin: auto;
+  z-index: 1;
 }

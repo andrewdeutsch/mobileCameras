@@ -3,6 +3,7 @@
 div#container {
   position: relative;
   height: 100%;
+  width: 100%;
 }
 .warning {
   color: red;
@@ -11,8 +12,8 @@ div#container {
 }
 
 .image1{
-    width: 25%;
-    left:40%;
+    width: 100%;
+    left:0;
     z-index: 2;
     position: fixed;
 }
@@ -32,7 +33,6 @@ div#container {
   top: 0;
   left: 0;
   overflow: hidden;
-  margin: auto;
   z-index: 1;
 }
 

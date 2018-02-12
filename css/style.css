@@ -16,23 +16,24 @@ div#container {
     left:0;
     z-index: 2;
     position: fixed;
+    display: none;
 }
 #cameraClicker{
     left:32%;
     bottom: 18%;
     z-index: 4;
-    display: block;
+    display: none;
     position: fixed;
 }
 #monument{
     left:0;
     bottom: 0%;
     z-index: 2;
-    display: block;
+    display: none;
     position: fixed;
 }
 #hashtag {
-  display: block;
+  display: none;
   width: 100%;
   left:0;
   bottom: 5%;

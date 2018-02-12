@@ -12,6 +12,8 @@ var errorElement = document.querySelector('#errorMsg');
 var video = document.querySelector('video');
 var canvas = window.canvas = document.querySelector('canvas');
 var clicker = document.getElementById("cameraClicker");
+var header = document.getElementById("header");
+var monument = document.getElementById("monument");
 var hashtag = document.getElementById("hashtag");
 
 // canvas.width = 480;
@@ -35,6 +37,10 @@ function handleSuccess(stream) {
   };
   window.stream = stream; // make variable available to browser console
   video.srcObject = stream;
+  monument.style.display = 'block';
+  header.style.display = 'block';
+  hashtag.style.display = 'block';
+  clicker.style.display = 'block';
 }
 
 

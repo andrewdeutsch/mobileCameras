@@ -9,7 +9,7 @@
 'use strict';
 
 var errorElement = document.querySelector('#errorMsg');
-var video = document.querySelector('video');
+var video = document.getElementById('video');
 var canvas = window.canvas = document.querySelector('canvas');
 var clicker = document.getElementById("cameraClicker");
 var header = document.getElementById("header");
@@ -32,6 +32,7 @@ function handleSuccess(stream) {
   console.log('Got stream with constraints:', constraints);
   console.log('Using video device: ' + videoTracks[0].label);
   console.log('Stream active');
+
   stream.oninactive = function() {
     console.log('Stream inactive');
   };
@@ -41,6 +42,7 @@ function handleSuccess(stream) {
   header.style.display = 'block';
   hashtag.style.display = 'block';
   clicker.style.display = 'block';
+  console.log("video width = " + video.videoWidth)
 }
 
 
@@ -49,10 +51,9 @@ function takePic() {
   canvas.height = video.videoHeight;
 
   canvas.getContext('2d').
-    drawImage(video, 0, 0, canvas.width, canvas.height);
+    drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
   clicker.style.display = 'none';
   video.style.display = 'none';
-  console.log('hashtag.style.display '+ hashtag.style.display);
 
 
 };

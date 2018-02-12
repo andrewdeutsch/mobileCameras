@@ -12,7 +12,7 @@ var errorElement = document.querySelector('#errorMsg');
 var video = document.querySelector('video');
 var canvas = window.canvas = document.querySelector('canvas');
 var clicker = document.getElementById("cameraClicker");
-
+var hashtag = document.getElementById("hashtag");
 
 // canvas.width = 480;
 // canvas.height = 360;
@@ -44,7 +44,10 @@ function takePic() {
 
   canvas.getContext('2d').
     drawImage(video, 0, 0, canvas.width, canvas.height);
-    video.style.display = 'none';
+  clicker.style.display = 'none';
+  video.style.display = 'none';
+  console.log('hashtag.style.display '+ hashtag.style.display);
+
 
 };
 

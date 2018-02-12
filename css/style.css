@@ -11,18 +11,34 @@ div#container {
   visibility: hidden;
 }
 
-.image1{
+#header{
     width: 100%;
     left:0;
     z-index: 2;
     position: fixed;
 }
-.image2{
-    left:50%;
-    bottom: 15%;
+#cameraClicker{
+    left:32%;
+    bottom: 18%;
+    z-index: 4;
+    display: block;
+    position: fixed;
+}
+#monument{
+    left:0;
+    bottom: 0%;
     z-index: 2;
     display: block;
     position: fixed;
+}
+#hashtag {
+  display: block;
+  width: 100%;
+  left:0;
+  bottom: 5%;
+  z-index: 3;
+  position: fixed;
+
 }
 
 

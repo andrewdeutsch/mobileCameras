@@ -51,16 +51,17 @@ div#container {
   padding: 0;
   overflow: hidden;
   z-index: 1;
+  display: block;
 }
 
 .shapShot {
   min-width: 100%;
   min-height: 100%;
-  position: absolute;
-  display: block;
+  position: fixed;
   top: 0;
   left: 0;
+  padding: 0;
   overflow: hidden;
-  margin: auto;
   z-index: 1;
+  display: block;
 }

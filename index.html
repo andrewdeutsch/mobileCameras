@@ -11,7 +11,6 @@
   <meta charset="utf-8">
   <meta name="description" content="WebRTC code samples">
   <meta name="viewport" content="width=device-width, height=device-height, user-scalable=yes, initial-scale=1, maximum-scale=1">
-  <meta itemprop="description" content="Client-side WebRTC code samples">
   <!-- <meta itemprop="image" content="../../../images/webrtc-icon-192x192.png"> -->
   <meta itemprop="name" content="WebRTC code samples">
   <meta name="mobile-web-app-capable" content="yes">
@@ -25,8 +24,13 @@
 <body>
 
   <div id="container">
-    <img src="images/sale.png" class="images">
-    <video id="gum-local" class="video" autoplay playsinline ></video>
+    <img src="images/sale.png" class="image1">
+    <!-- <button onclick="takePic()" class="image2">Click me</button> -->
+    <img src="images/clicker.png" class="image2" id="cameraClicker">
+
+    <video class="video" autoplay playsinline ></video>
+    <canvas></canvas>
+    <div id="errorMsg">
 
   </div>
   <script src="js/index.js"></script>

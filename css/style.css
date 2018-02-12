@@ -2,18 +2,44 @@
 
 div#container {
   position: relative;
+  height: 100%;
+}
+.warning {
+  color: red;
+  font-weight: 400;
+  visibility: hidden;
 }
 
-.images{
-  left:50%;
-  z-index: 2;
-  position: relative;
+.image1{
+    width: 20%;
+    left:40%;
+    z-index: 2;
+    position: fixed;
 }
+.image2{
+    left: 50%;
+    bottom: 15%;
+    z-index: 2;
+    position: fixed;
+}
+
 
 .video {
   min-width: 100%;
   min-height: 100%;
   position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  margin: auto;
+  z-index: 1;
+}
+
+.shapShot {
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  display: block;
   top: 0;
   left: 0;
   overflow: hidden;

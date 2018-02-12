@@ -10,6 +10,13 @@
 
 var errorElement = document.querySelector('#errorMsg');
 var video = document.querySelector('video');
+var canvas = window.canvas = document.querySelector('canvas');
+var clicker = document.getElementById("cameraClicker");
+
+
+// canvas.width = 480;
+// canvas.height = 360;
+clicker.onclick = function() {takePic()};
 
 // Put variables in global scope to make them available to the browser console.
 var constraints = window.constraints = {
@@ -18,17 +25,32 @@ var constraints = window.constraints = {
 };
 
 
-
 function handleSuccess(stream) {
   var videoTracks = stream.getVideoTracks();
   console.log('Got stream with constraints:', constraints);
   console.log('Using video device: ' + videoTracks[0].label);
+  console.log('Stream active');
   stream.oninactive = function() {
     console.log('Stream inactive');
   };
   window.stream = stream; // make variable available to browser console
   video.srcObject = stream;
 }
+
+
+function takePic() {
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+
+  canvas.getContext('2d').
+    drawImage(video, 0, 0, canvas.width, canvas.height);
+    video.style.display = 'none';
+
+};
+
+
+
+
 
 function handleError(error) {
   if (error.name === 'ConstraintNotSatisfiedError') {

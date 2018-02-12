@@ -27,7 +27,7 @@ div#container {
 }
 #monument{
     left:0px;
-    width: 100%;
+    max-width: 100%;
     bottom: 12%;
     z-index: 2;
     display: none;

@@ -47,7 +47,7 @@ div#container {
   max-width: 70%;
   display: none;
   padding-left: 15%;
-  bottom: 35%;
+  top: 50%;
   z-index: 4;
   position: fixed;
 }

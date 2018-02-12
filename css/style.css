@@ -11,17 +11,16 @@ div#container {
 }
 
 .image1{
-    width: 20%;
+    width: 25%;
     left:40%;
     z-index: 2;
     position: fixed;
 }
 .image2{
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+    left:50%;
     bottom: 15%;
     z-index: 2;
+    display: block;
     position: fixed;
 }
 

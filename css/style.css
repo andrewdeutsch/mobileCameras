@@ -11,7 +11,7 @@ div#container {
   visibility: hidden;
 }
 
-#header{
+#sky{
     width: 100%;
     left:0;
     top:0;
@@ -22,6 +22,7 @@ div#container {
 #cameraClicker{
     left:32%;
     bottom: 18%;
+    width: 40%;
     z-index: 4;
     display: none;
     position: fixed;
@@ -34,7 +35,7 @@ div#container {
     display: none;
     position: fixed;
 }
-#hashtag {
+#weather {
   display: none;
   width: 100%;
   left:0;

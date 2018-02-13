@@ -44,6 +44,15 @@ div#container {
   position: fixed;
 }
 
+#tree {
+  display: block;
+  width: 40%;
+  left: 0;
+  bottom: 12%;
+  z-index: 2;
+  position: fixed;
+}
+
 #shareBtn {
   max-width: 70%;
   display: none;

@@ -15,6 +15,7 @@ var clicker = document.getElementById("cameraClicker");
 var sky = document.getElementById("sky");
 //var monument = document.getElementById("monument");
 var weather = document.getElementById("weather");
+var tree = document.getElementById("tree");
 
 // canvas.width = 480;
 // canvas.height = 360;
@@ -41,6 +42,7 @@ function handleSuccess(stream) {
   //monument.style.display = 'block';
   sky.style.display = 'block';
   weather.style.display = 'block';
+  tree.style.display = 'block';
   clicker.style.display = 'block';
 
   console.log("video width = " + video.videoWidth)

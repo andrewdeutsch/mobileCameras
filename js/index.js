@@ -38,7 +38,7 @@ function handleSuccess(stream) {
   };
   window.stream = stream; // make variable available to browser console
   video.srcObject = stream;
-  // monument.style.display = 'block';
+  monument.style.display = 'block';
   header.style.display = 'block';
   hashtag.style.display = 'block';
   clicker.style.display = 'block';
@@ -46,7 +46,7 @@ function handleSuccess(stream) {
   console.log("video width = " + video.videoWidth)
 }
 
-// 
+//
 // (function(d, s, id) {
 //     var js, fjs = d.getElementsByTagName(s)[0];
 //     if (d.getElementById(id)) return;

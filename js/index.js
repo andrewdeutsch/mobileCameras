@@ -48,28 +48,35 @@ function handleSuccess(stream) {
   console.log("video width = " + video.videoWidth)
 }
 
-//
-// (function(d, s, id) {
-//     var js, fjs = d.getElementsByTagName(s)[0];
-//     if (d.getElementById(id)) return;
-//     js = d.createElement(s); js.id = id;
-//     js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1";
-//     fjs.parentNode.insertBefore(js, fjs);
-//   }(document, 'script', 'facebook-jssdk'));
-
 
 
 function takePic() {
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
-
   canvas.getContext('2d').
     drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
   clicker.style.display = 'none';
   video.style.display = 'none';
   shareBtn.style.display = 'block';
 
+  // html2canvas(document.querySelector("#container")).then(canvas => {
 
+  canvas.toBlob(function(blob){
+    console.log(blob);
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://d3a4kjxi6e.execute-api.us-east-1.amazonaws.com/prod/movableink-ar-presigned-url', true);
+    xhr.onload = function(e) { console.log(this.responseText)
+      var response = JSON.parse(this.responseText);
+      var putXHR = new XMLHttpRequest();
+      putXHR.open('PUT', response.putUrl, true);
+      putXHR.onload = function(e) { console.log(response.putUrl);
+    }
+      putXHR.send(blob);
+    };
+    xhr.send();
+  },'image/jpeg', 0.95)
+
+  // });
 };
 
 

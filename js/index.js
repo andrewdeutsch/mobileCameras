@@ -14,6 +14,8 @@ var canvas = window.canvas = document.querySelector('canvas');
 var clicker = document.getElementById("cameraClicker");
 var sky = document.getElementById("sky");
 var shareBtn = document.getElementById("shareBtn");
+var download = document.getElementById("download");
+
 
 //var monument = document.getElementById("monument");
 var weather = document.getElementById("weather");
@@ -30,6 +32,7 @@ var urlToOpen;
 // canvas.height = 360;
 clicker.onclick = function() {takePic()};
 shareBtn.onclick = function() {loadImg()};
+download.onclick = function() {downloadImg()};
 // Put variables in global scope to make them available to the browser console.
 var constraints = window.constraints = {
   audio: false,
@@ -94,7 +97,8 @@ function takePic() {
 
 function enableShareBtn(){
   window.setTimeout(function() {
-    shareBtn.style.display = 'block';
+    //shareBtn.style.display = 'block';
+    download.style.display = 'block';
 }, 250);
 
 }
@@ -109,14 +113,30 @@ function loadImg() {
                'og:url': urlToOpen,
                'og:title': 'Future Forecast',
                'og:description': "Me, soon.",
-               'og:image': urlToOpen
+               'og:image': urlToOpen,
+               'og:og:image:width': '733',
+               'og:image:height': '1440'
             }
         })
     });
       console.log('urlToOpen '+ urlToOpen);
 }
 
-
+function downloadImg() {
+  //var blob = new Blob(recordedBlobs, {type: 'video/webm'});
+  var url = urlToOpen;
+  var a = document.createElement('a');
+  console.log("the urls is "+url)
+  a.style.display = 'none';
+  a.href = url;
+  a.download = url;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(function() {
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  }, 100);
+}
 
 
 function handleError(error) {

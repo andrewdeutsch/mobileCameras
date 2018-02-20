@@ -77,6 +77,16 @@ div#container {
   display: block;
 }
 
+#download{
+  display: none;
+  bottom: 20%;
+  left: 42%;
+  width: 20%;
+  z-index: 4;
+  position: absolute;
+  height: 20%;
+}
+
 #shapShot {
   min-width: 100%;
   min-height: 100%;

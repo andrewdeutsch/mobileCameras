@@ -127,7 +127,7 @@ function downloadImg() {
   var url = urlToOpen;
   var a = document.createElement('a');
   console.log("the urls is "+url)
-  a.style.display = 'none';
+  a.style.display = 'block';
   a.href = url;
   a.download = url;
   document.body.appendChild(a);

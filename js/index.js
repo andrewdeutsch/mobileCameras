@@ -8,6 +8,7 @@
 
 'use strict';
 
+var shareButtons = document.getElementById('sharethis-inline-share-buttons');
 var errorElement = document.querySelector('#errorMsg');
 var video = document.getElementById('video');
 var canvas = window.canvas = document.querySelector('canvas');
@@ -31,7 +32,7 @@ var urlToOpen;
 // canvas.width = 480;
 // canvas.height = 360;
 clicker.onclick = function() {takePic()};
-shareBtn.onclick = function() {loadImg()};
+//shareBtn.onclick = function() {loadImg()};
 download.onclick = function() {downloadImg()};
 // Put variables in global scope to make them available to the browser console.
 var constraints = window.constraints = {
@@ -98,6 +99,7 @@ function takePic() {
 function enableShareBtn(){
   window.setTimeout(function() {
     //shareBtn.style.display = 'block';
+    shareButtons.style.display = 'block';
     download.style.display = 'block';
 }, 250);
 

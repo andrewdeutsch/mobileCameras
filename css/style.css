@@ -13,6 +13,11 @@ div#container {
   visibility: hidden;
 }
 
+#sharethis-inline-share-buttons{
+  opacity: 0;
+  z-index: 4;
+}
+
 #sky{
     width: 100%;
     left:0;

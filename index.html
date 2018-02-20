@@ -15,6 +15,8 @@
   <meta itemprop="name" content="WebRTC code samples">
   <meta name="mobile-web-app-capable" content="yes">
   <meta id="theme-color" name="theme-color" content="#ffffff">
+
+
   <base target="_blank">
   <title>Future Forecast</title>
   <link rel="stylesheet" href="css/style.css">
@@ -22,27 +24,52 @@
 </head>
 
 <body>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '464477610635000',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.12'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+</script>
+
   <div id="fb-root"></div>
 
-  </div>
-  <div id="container">
-    <img src="images/shareBtn.jpg" id="shareBtn" data-href="https://www.your-domain.com/your-page.html"
-    data-layout="button_count">
-    <img src="images/sky.png" id="sky">
-    <img src="images/tree.png" id="tree">
-    <!-- <img src="images/monuments.png" id="monument"> -->
-    <!-- <button onclick="takePic()" class="image2">Click me</button> -->
-    <img src="images/clicker.png" id="cameraClicker">
-    <img src="images/weather.jpg" id="weather">
+    <div id="container">
+      <img src="images/shareBtn.jpg" id="shareBtn">
+      <img src="images/sky.png" id="sky">
+      <img src="images/tree.png" id="tree">
+      <!-- <img src="images/monuments.png" id="monument"> -->
+      <!-- <button onclick="takePic()" class="image2">Click me</button> -->
+      <img src="images/clicker.png" id="cameraClicker">
+      <img src="images/weather.jpg" id="weather">
+      <!-- <button class="sharer button" id="shareBtn" data-sharer="facebook" data-url="urlToOpen">Share on Facebook</button> -->
 
-    <video id="video" autoplay playsinline ></video>
-    <canvas id="shapShot"></canvas>
-    <!-- <div id="errorMsg"> -->
-
-  </div>
+      <video id="video" autoplay playsinline ></video>
+      <canvas id="shapShot"></canvas>
+    <div id="errorMsg">
+    </div>
   <script src="js/index.js"></script>
-  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
-
+  <script src="js/canvas-to-blob.js"></script>
+  <script src="js/dom-to-image.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <!-- <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script> -->
+  <meta property="og:type" content="image" />
+  <meta property="og:title" content="Future Forecast" />
+  <meta property="og:description" content="Looking ahead.." />
+  <meta property="og:image" content=urlToOpen />
 
 
 </body>

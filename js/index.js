@@ -13,14 +13,23 @@ var video = document.getElementById('video');
 var canvas = window.canvas = document.querySelector('canvas');
 var clicker = document.getElementById("cameraClicker");
 var sky = document.getElementById("sky");
+var shareBtn = document.getElementById("shareBtn");
+
 //var monument = document.getElementById("monument");
 var weather = document.getElementById("weather");
 var tree = document.getElementById("tree");
 
+var node = document.getElementById('container');
+
+var img = new Image();
+
+var urlToOpen;
+
+
 // canvas.width = 480;
 // canvas.height = 360;
 clicker.onclick = function() {takePic()};
-
+shareBtn.onclick = function() {loadImg()};
 // Put variables in global scope to make them available to the browser console.
 var constraints = window.constraints = {
   audio: false,
@@ -44,10 +53,7 @@ function handleSuccess(stream) {
   weather.style.display = 'block';
   tree.style.display = 'block';
   clicker.style.display = 'block';
-
-  console.log("video width = " + video.videoWidth)
 }
-
 
 
 function takePic() {
@@ -55,30 +61,60 @@ function takePic() {
   canvas.height = video.videoHeight;
   canvas.getContext('2d').
     drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+
+  domtoimage.draw(node, {})
+      .then(function (canvas) {
+          //img.src = dataUrl;
+          canvas.toBlob(function(blob){
+            //canvas.append(img);
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://d3a4kjxi6e.execute-api.us-east-1.amazonaws.com/prod/movableink-ar-presigned-url', true);
+            xhr.onload = function(e) { console.log(this.responseText)
+              var response = JSON.parse(this.responseText);
+              var putXHR = new XMLHttpRequest();
+              putXHR.open('PUT', response.putUrl, true);
+              putXHR.onload = function(e) { console.log(response.putUrl);
+            }
+              putXHR.send(blob);
+              urlToOpen = response.url;
+              console.log("urlToOpen " + urlToOpen);
+            };
+            xhr.send();
+          },'image/jpeg', 0.95)
+
+      })
+      .catch(function (error) {
+          console.error('oops, something went wrong!', error);
+      });
   clicker.style.display = 'none';
   video.style.display = 'none';
-  shareBtn.style.display = 'block';
+  enableShareBtn();
 
-  // html2canvas(document.querySelector("#container")).then(canvas => {
-
-  canvas.toBlob(function(blob){
-    console.log(blob);
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://d3a4kjxi6e.execute-api.us-east-1.amazonaws.com/prod/movableink-ar-presigned-url', true);
-    xhr.onload = function(e) { console.log(this.responseText)
-      var response = JSON.parse(this.responseText);
-      var putXHR = new XMLHttpRequest();
-      putXHR.open('PUT', response.putUrl, true);
-      putXHR.onload = function(e) { console.log(response.putUrl);
-    }
-      putXHR.send(blob);
-    };
-    xhr.send();
-  },'image/jpeg', 0.95)
-
-  // });
 };
 
+function enableShareBtn(){
+  window.setTimeout(function() {
+    shareBtn.style.display = 'block';
+}, 250);
+
+}
+
+
+function loadImg() {
+  FB.ui({
+        method: 'share_open_graph',
+        action_type: 'og.shares',
+        action_properties: JSON.stringify({
+            object : {
+               'og:url': urlToOpen,
+               'og:title': 'Future Forecast',
+               'og:description': "Me, soon.",
+               'og:image': urlToOpen
+            }
+        })
+    });
+      console.log('urlToOpen '+ urlToOpen);
+}
 
 
 

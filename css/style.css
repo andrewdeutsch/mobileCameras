@@ -16,6 +16,7 @@ div#container {
 #sharethis-inline-share-buttons{
   opacity: 0;
   z-index: 4;
+  position: absolute;
 }
 
 #sky{

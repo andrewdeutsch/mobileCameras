@@ -16,6 +16,8 @@ var clicker = document.getElementById("cameraClicker");
 var sky = document.getElementById("sky");
 var shareBtn = document.getElementById("shareBtn");
 var download = document.getElementById("download");
+var snapShot = document.getElementById("snapShot");
+
 
 
 //var monument = document.getElementById("monument");
@@ -32,8 +34,8 @@ var urlToOpen;
 // canvas.width = 480;
 // canvas.height = 360;
 clicker.onclick = function() {takePic()};
-//shareBtn.onclick = function() {loadImg()};
-download.onclick = function() {downloadImg()};
+shareBtn.onclick = function() {loadImg()};
+// download.onclick = function() {downloadImg()};
 // Put variables in global scope to make them available to the browser console.
 var constraints = window.constraints = {
   audio: false,
@@ -90,6 +92,14 @@ function takePic() {
       .catch(function (error) {
           console.error('oops, something went wrong!', error);
       });
+      //var c = document.getElementById("canvas");
+      // var ctx = canvas.getContext("2d");
+      // var img = new Image();
+      // img.onload = function() {
+      //   ctx.drawImage(img, 0, 0);
+      // };
+      // img.src = urlToOpen;
+  //canvas.src = urlToOpen;
   clicker.style.display = 'none';
   video.style.display = 'none';
   enableShareBtn();
@@ -98,7 +108,10 @@ function takePic() {
 
 function enableShareBtn(){
   window.setTimeout(function() {
-    //shareBtn.style.display = 'block';
+    shareBtn.style.display = 'block';
+    // sky.style.display = 'none';
+    // weather.style.display = 'none';
+    // tree.style.display = 'none';
     shareButtons.style.display = 'block';
     download.style.display = 'block';
 }, 250);

@@ -26,13 +26,12 @@ var node = document.getElementById('container');
 
 var img = new Image();
 var urlToOpen;
-var blob;
 var formData;
 var dataURL;
 var blobby;
 // canvas.width = 480;
 // canvas.height = 360;
-clicker.onclick = function() {
+clicker.addEventListener('click', function () {
     //fbUpload(token)
     takePic()
 };
@@ -76,6 +75,7 @@ function takePic() {
         .then(function(canvas) {
             //img.src = dataUrl;
             canvas.toBlob(function(blob) {
+              console.log("blob " + blob)
                 //canvas.append(img);
                 dataURL = canvas.toDataURL('image/jpeg', 1.0)
                 blobby = dataURItoBlob(dataURL);
@@ -157,6 +157,7 @@ function fbUpload(token){
   var formData = new FormData()
   formData.append('access_token', token)
   formData.append('source', blobby)
+  formData.append('message', 'Check out my Future Forecast! Get yours at https://www.futureforecast.com');
   for (var pair of formData.entries()) {
     console.log("FORM DATA " + pair[0]+ ', ' + pair[1]);
   }

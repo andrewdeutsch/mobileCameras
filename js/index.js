@@ -17,15 +17,14 @@ var shareBtn = document.getElementById("shareBtn");
 var download = document.getElementById("download");
 var snapShot = document.getElementById("snapShot");
 
-var token = "EAACEdEose0cBABfo669QLzdZBVcerw4NvCBO106ldZBwOpGjJNugRtDImwklnlB1xpsGlD9Iy6cyxfO6SliUZBdG7lXyXlhrOFt75AdtntBn4j8SZAF0kqUXVdydocrzMfEAVDFtMXJSOrPRAA8I0GourSwbLT5USMqXKfHTnxR9f2YzK1L2rppXpZBwb9cLq7lxjzTOwjYSQ5G76a6TO";
+var token = "EAACEdEose0cBADHdIXTDBYBzxNFCyvt78lbvSzO4qUmX8mrO4MGbWGQkyuiz1XEm1OdhFg5NwwcquZADM7wVqcX8stCYQ114t2AX7HNF5TzYj5sHplxMole2x27SozLXSnMCMo8DHqBpSWxoXJvqBZCQzAgLriyqEdi2DimwY9et9qk9rqCqC5Do8LErx91j8LEC7HuXCLX9iMvE7k";
 
 //var monument = document.getElementById("monument");
 var weather = document.getElementById("weather");
 var tree = document.getElementById("tree");
 var node = document.getElementById('container');
 
-var img = new Image();
-var urlToOpen;
+//var urlToOpen;
 var formData;
 var dataURL;
 var blobby;

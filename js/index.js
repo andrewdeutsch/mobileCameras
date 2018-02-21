@@ -34,7 +34,7 @@ var blobby;
 clicker.addEventListener('click', function () {
     //fbUpload(token)
     takePic()
-});
+})
 shareBtn.addEventListener('click', function () {
 	fbUpload(token)
 })

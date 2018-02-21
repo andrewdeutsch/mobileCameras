@@ -15,11 +15,16 @@
   <meta itemprop="name" content="WebRTC code samples">
   <meta name="mobile-web-app-capable" content="yes">
   <meta id="theme-color" name="theme-color" content="#ffffff">
-  <meta property="og:type" content="image" />
+  <!-- <meta property="og:type" content="image" />
   <meta property="og:title" content="Future Forecast" />
   <meta property="og:description" content="Looking ahead.." />
-  <meta property="og:image" content="https://pbs.twimg.com/media/DWfdjTUX4AAdRqr.jpg:large" />
-
+  <meta property="og:image" content="https://pbs.twimg.com/media/DWfdjTUX4AAdRqr.jpg:large" /> -->
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# image: http://ogp.me/ns/image#">
+ <meta property="fb:app_id" content="302184056577324" />
+ <meta property="og:type"   content="image.gallery" />
+ <meta property="og:url"    content="Put your own URL to the object here" />
+ <meta property="og:title"  content="Sample Image.gallery" />
+ <meta property="og:image"  content="https://fbstatic-a.akamaihd.net/images/devsite/attachment_blank.png" />
   <base target="_blank">
   <title>Future Forecast</title>
   <link rel="stylesheet" href="css/style.css">
@@ -60,17 +65,21 @@
       <!-- <button onclick="takePic()" class="image2">Click me</button> -->
       <img src="images/clicker.png" id="cameraClicker">
       <img src="images/weather.jpg" id="weather">
-      <img src="images/shareBtn.jpg" id="shareBtn" onclick="loadImg()">
+      <img src="images/shareBtn.jpg" id="shareBtn">
       <!-- <button class="sharer button" id="shareBtn" data-sharer="facebook" data-url="urlToOpen">Share on Facebook</button> -->
       <!-- <button id="download" onclick="download()">Download</button> -->
       <video id="video" autoplay playsinline ></video>
       <canvas id="shapShot"></canvas>
+      <div id="status"></div>
     <div id="errorMsg">
     </div>
   <script src="js/index.js"></script>
   <script src="js/canvas-to-blob.js"></script>
   <script src="js/dom-to-image.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
   <!-- <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script> -->
 
 

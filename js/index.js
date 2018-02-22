@@ -177,21 +177,21 @@ function fbUpload(){
   //   console.log("FORM DATA " + pair[0]+ ', ' + pair[1]);
   // }
   //console.log(urlToOpen);
-  // var xhr = new XMLHttpRequest();
-  // xhr.open( 'POST', 'https://graph.facebook.com/me/photos', true )
-  // xhr.onload = xhr.onerror = function() {
-  //   console.log( xhr.responseText )
-  // };
-  // xhr.send( formData )
+  var xhr = new XMLHttpRequest();
+  xhr.open( 'POST', 'https://graph.facebook.com/me/photos', true )
+  xhr.onload = xhr.onerror = function() {
+    console.log( xhr.responseText )
+  };
+  xhr.send( formData )
 
-  FB.api('/me/photos', 'post', {source: formData}, function(response) {
-    if (!response || response.error) {
-      document.getElementById('status').innerHTML = "Errooor!";
-      console.log(response.error);
-    } else {
-      document.getElementById('status').innerHTML = response.id;
-    }
-  });
+  // FB.api('/me/photos', 'post', {source: formData}, function(response) {
+  //   if (!response || response.error) {
+  //     document.getElementById('status').innerHTML = "Errooor!";
+  //     console.log(response.error);
+  //   } else {
+  //     document.getElementById('status').innerHTML = response.id;
+  //   }
+  // });
 }
 
 function dataURItoBlob(dataURI) {

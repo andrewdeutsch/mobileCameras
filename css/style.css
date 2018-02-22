@@ -108,3 +108,7 @@
   z-index: 1;
   display: block;
 }
+#status {
+  z-index:4;
+  position:relative;
+}

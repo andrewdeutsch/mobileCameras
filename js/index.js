@@ -75,11 +75,13 @@ function takePic() {
     //var skyHeight = 100%;
 
     context.drawImage(video, 0, 0);
-
+    $('video').remove();
+    console.log('node1 ' +node1);
     domtoimage.draw(node1, {})
         .then(function(canvas) {
             //img.src = dataUrl;
             //context.clearRect(0,0);
+            //$('body').html("").prepend(canvas)
             canvas.toBlob(function(blob) {
                 //canvas.append(img);
                 //canvas.append(sky);

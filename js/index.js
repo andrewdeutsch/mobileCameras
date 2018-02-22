@@ -18,7 +18,7 @@ var download = document.getElementById("download");
 var snapShot = document.getElementById("snapShot");
 
 //access token activated on graph explorer for the 'future forecast' app
-var token = "EAAGmcJ787vgBADD6JwiZByZBUlr5rUeGJhca5zsXijgyKFrErSKfZBwlwZAZCBljrf1gf0ZBEG8YBqOF4JelnTQHtNZAmKk2CqFJ7WdssGxebmqQ9sZBHZA0E0YOsEHMZAqZCVNo8ZAsZCfKLK3CGu4p1QLWXkQ7n82BclzPq2g1hUYaZCJ4JTx5HWyBdCnvaXkNvwkErCnZBicN8ynbxhzdJn9QEbu";
+var token = "464477610635000|f2uI0WN_tW09A3lRAqg4SjuS3Bo";
 
 var context = canvas1.getContext('2d');
 
@@ -202,19 +202,19 @@ function dataURItoBlob(dataURI) {
   for (var i = 0; i < byteString.length; i++) { ia[i] = byteString.charCodeAt(i); }
   return new Blob([ab], {type: mimeString});
 }
-
-function login() {
-  FB.login(function(response) {
-    if (response.status === 'connected') {
-        document.getElementById('status').innerHTML = 'We are connected.';
-        document.getElementById('loginBtn').style.visibility = 'hidden';
-      } else if (response.status === 'not_authorized') {
-        document.getElementById('status').innerHTML = 'We are not logged in.'
-      } else {
-        document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
-      }
-  }, {scope: 'publish_actions'});
-}
+//
+// function login() {
+//   FB.login(function(response) {
+//     if (response.status === 'connected') {
+//         document.getElementById('status').innerHTML = 'We are connected.';
+//         document.getElementById('loginBtn').style.visibility = 'hidden';
+//       } else if (response.status === 'not_authorized') {
+//         document.getElementById('status').innerHTML = 'We are not logged in.'
+//       } else {
+//         document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+//       }
+//   }, {scope: 'publish_actions'});
+// }
 function handleError(error) {
     if (error.name === 'ConstraintNotSatisfiedError') {
         errorMsg('The resolution ' + constraints.video.width.exact + 'x' +

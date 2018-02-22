@@ -90,7 +90,6 @@ function takePic() {
                 //tree.style.display = 'none';
                 context.drawImage(sky, 0, 0, sky.width, sky.height);
                 console.log("video.videoWidth " + video.videoWidth)
-                console.log("sky.width " + sky.width)
                 dataURL = canvas1.toDataURL('image/jpeg', .8)
                 blobby = dataURItoBlob(dataURL);
             //     var xhr = new XMLHttpRequest();
@@ -172,9 +171,9 @@ function fbUpload(token){
   formData.append('access_token', token)
   formData.append('source', blobby)
   formData.append('message', 'Check out my Future Forecast! Get yours at https://www.futureforecast.com');
-  for (var pair of formData.entries()) {
-    console.log("FORM DATA " + pair[0]+ ', ' + pair[1]);
-  }
+  // for (var pair of formData.entries()) {
+  //   console.log("FORM DATA " + pair[0]+ ', ' + pair[1]);
+  // }
   //console.log(urlToOpen);
   var xhr = new XMLHttpRequest();
   xhr.open( 'POST', 'https://graph.facebook.com/me/photos', true )

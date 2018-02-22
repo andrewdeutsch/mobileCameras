@@ -80,15 +80,15 @@ function takePic() {
         .then(function(canvas) {
             //img.src = dataUrl;
             //context.clearRect(0,0);
-            canvas1.toBlob(function(blob) {
+            canvas.toBlob(function(blob) {
                 //canvas.append(img);
                 //canvas.append(sky);
                 // canvas.append(tree);
                 // canvas.append(weather);
-                sky.style.display = 'none';
+                //sky.style.display = 'none';
                 //weather.style.display = 'none';
                 //tree.style.display = 'none';
-                context.drawImage(sky, 0, 0, sky.width, sky.height);
+                //context.drawImage(sky, 0, 0, sky.width, sky.height);
                 console.log("video.videoWidth " + video.videoWidth)
                 dataURL = canvas1.toDataURL('image/jpeg', .8)
                 blobby = dataURItoBlob(dataURL);

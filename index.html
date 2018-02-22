@@ -11,7 +11,7 @@
   <meta charset="utf-8">
   <meta name="description" content="WebRTC code samples">
   <meta name="viewport" content="width=device-width, height=device-height, user-scalable=yes, initial-scale=1, maximum-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src *; script-src *;img-src * 'self' data: http:;">
+
   <!-- <meta itemprop="image" content="../../../images/webrtc-icon-192x192.png"> -->
   <meta itemprop="name" content="WebRTC code samples">
   <meta name="mobile-web-app-capable" content="yes">
@@ -20,13 +20,13 @@
   <meta property="og:title" content="Future Forecast" />
   <meta property="og:description" content="Looking ahead.." />
   <meta property="og:image" content="https://pbs.twimg.com/media/DWfdjTUX4AAdRqr.jpg:large" /> -->
-  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# image: http://ogp.me/ns/image#">
+  <!-- <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# image: http://ogp.me/ns/image#">
  <meta property="fb:app_id" content="302184056577324" />
  <meta property="og:type"   content="image.gallery" />
  <meta property="og:url"    content="Put your own URL to the object here" />
  <meta property="og:title"  content="Sample Image.gallery" />
  <meta property="og:image"  content="https://fbstatic-a.akamaihd.net/images/devsite/attachment_blank.png" />
-  <base target="_blank">
+  <base target="_blank"> -->
   <title>Future Forecast</title>
   <link rel="stylesheet" href="css/style.css">
   <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a8c8281e3b02a00133b2d08&product=inline-share-buttons"></script>
@@ -75,6 +75,9 @@
       <video id="video" autoplay playsinline ></video>
       <canvas id="shapShot"></canvas>
       <div id="status"></div>
+      <button onclick="login()" id="loginBtn">Login</button>
+
+    	<!-- <button onclick="fbUpload()">Upload Photo</button> -->
     <div id="errorMsg">
     </div>
   <script src="js/index.js"></script>

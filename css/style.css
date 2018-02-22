@@ -19,6 +19,10 @@
   position: absolute;
 }
 
+#loginBtn {
+  z-index:4;
+  position: relative;
+}
 #sky{
     width: 100%;
     left:0;

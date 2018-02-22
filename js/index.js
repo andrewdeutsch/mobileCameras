@@ -166,11 +166,11 @@ function enableShareBtn() {
 //     console.log('urlToOpen ' + urlToOpen);
 // }
 
-function fbUpload(token){
+function fbUpload(){
   // var dataURL = canvas.toDataURL('image/jpeg', 1.0)
   // var blobby = dataURItoBlob(dataURL);
   var formData = new FormData()
-  formData.append('access_token', token)
+  //formData.append('access_token', token)
   formData.append('source', blobby)
   formData.append('message', 'Check out my Future Forecast! Get yours at https://www.futureforecast.com');
   // for (var pair of formData.entries()) {

@@ -203,18 +203,19 @@ function dataURItoBlob(dataURI) {
   return new Blob([ab], {type: mimeString});
 }
 //
-// function login() {
-//   FB.login(function(response) {
-//     if (response.status === 'connected') {
-//         document.getElementById('status').innerHTML = 'We are connected.';
-//         document.getElementById('loginBtn').style.visibility = 'hidden';
-//       } else if (response.status === 'not_authorized') {
-//         document.getElementById('status').innerHTML = 'We are not logged in.'
-//       } else {
-//         document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
-//       }
-//   }, {scope: 'publish_actions'});
-// }
+function login() {
+  FB.login(function(response) {
+    console.log(response);
+    if (response.status === 'connected') {
+        document.getElementById('status').innerHTML = 'We are connected.';
+        document.getElementById('loginBtn').style.visibility = 'hidden';
+      } else if (response.status === 'not_authorized') {
+        document.getElementById('status').innerHTML = 'We are not logged in.'
+      } else {
+        document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+      }
+  }, {scope: 'publish_actions'});
+}
 function handleError(error) {
     if (error.name === 'ConstraintNotSatisfiedError') {
         errorMsg('The resolution ' + constraints.video.width.exact + 'x' +

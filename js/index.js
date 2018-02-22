@@ -10,7 +10,7 @@
 var shareButtons = document.getElementById('sharethis-inline-share-buttons');
 var errorElement = document.querySelector('#errorMsg');
 var video = document.getElementById('video');
-var canvas = window.canvas = document.querySelector('canvas');
+var canvas1 = window.canvas = document.querySelector('canvas');
 var clicker = document.getElementById("cameraClicker");
 var sky = document.getElementById("sky");
 var shareBtn = document.getElementById("shareBtn");
@@ -20,7 +20,7 @@ var snapShot = document.getElementById("snapShot");
 //access token activated on graph explorer for the 'future forecast' app
 var token = "EAACEdEose0cBAMRuFSII5aiLTqWihPZAK7ZAZAG15XQH2LgqJuri6ACHviXRuWN86tG71aS84kGhxB2ynaqvrFQpYJUQ1m9CJG8O6hTcsPaM0NEsZBnV70SX3UMZBhbMJXUrU0Gg4WnZAVSbs50pJXaRJDNYykcVdNGPhHLcGBcgOAU2MAOZBRRCM2RqZCG9wG4TpKofvZBjwNVfDa4qy4blU";
 
-var context = canvas.getContext('2d');
+var context = canvas1.getContext('2d');
 
 //var monument = document.getElementById("monument");
 var weather = document.getElementById("weather");
@@ -69,8 +69,8 @@ function handleSuccess(stream) {
 
 
 function takePic() {
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
+    canvas1.width = video.videoWidth;
+    canvas1.height = video.videoHeight;
     //var skyWidth = 100%;
     //var skyHeight = 100%;
 
@@ -79,8 +79,8 @@ function takePic() {
     domtoimage.draw(node1, {})
         .then(function(canvas) {
             //img.src = dataUrl;
-
-            canvas.toBlob(function(blob) {
+            //context.clearRect(0,0);
+            canvas1.toBlob(function(blob) {
                 //canvas.append(img);
                 //canvas.append(sky);
                 // canvas.append(tree);
@@ -91,7 +91,7 @@ function takePic() {
                 context.drawImage(sky, 0, 0, sky.width, sky.height);
                 console.log("video.videoWidth " + video.videoWidth)
                 console.log("sky.width " + sky.width)
-                dataURL = canvas.toDataURL('image/jpeg', .8)
+                dataURL = canvas1.toDataURL('image/jpeg', .8)
                 blobby = dataURItoBlob(dataURL);
             //     var xhr = new XMLHttpRequest();
             //     xhr.open('GET', 'https://d3a4kjxi6e.execute-api.us-east-1.amazonaws.com/prod/movableink-ar-presigned-url', true);

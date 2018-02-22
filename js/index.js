@@ -198,7 +198,7 @@ function login() {
   FB.login(function(response) {
     if (response.status === 'connected') {
         document.getElementById('status').innerHTML = 'We are connected.';
-        document.getElementById('login').style.visibility = 'hidden';
+        document.getElementById('loginBtn').style.visibility = 'hidden';
       } else if (response.status === 'not_authorized') {
         document.getElementById('status').innerHTML = 'We are not logged in.'
       } else {

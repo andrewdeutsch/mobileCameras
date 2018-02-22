@@ -205,7 +205,7 @@ function dataURItoBlob(dataURI) {
 //
 function login() {
   FB.login(function(response) {
-    console.log(response);
+    console.log(response.accessToken);
     if (response.status === 'connected') {
         document.getElementById('status').innerHTML = 'We are connected.';
         document.getElementById('loginBtn').style.visibility = 'hidden';

@@ -16,7 +16,7 @@ var sky = document.getElementById("sky");
 var shareBtn = document.getElementById("shareBtn");
 var download = document.getElementById("download");
 var snapShot = document.getElementById("snapShot");
-
+var thisUser;
 //access token activated on graph explorer for the 'future forecast' app
 var token = "EAAGmcJ787vgBAD7x8F4enC9J5C6EMZAK5GFHvnDZCZCZA0mqx5XgZCFSgDEZBnPZBA4ZAXLjcnIfji4ZCZCirtzp3D0jsZC1fRwisisnkelqU1ZAL9yQmdR6Q6BLqK9jZA6XBM9kZBgM91GMebalQZBHbV5wRv24VA5K0Ss3vQVCUyS0mgz2QZCdzZCRveFV6ZAL9HZBrK0KqE4ZC3ryqnyslBqwHIuknbae";
 
@@ -78,7 +78,6 @@ function takePic() {
 
     context.drawImage(video, 0, 0);
     $('video').remove();
-    console.log('node1 ' +node1);
     domtoimage.draw(node1, {})
         .then(function(canvas) {
             //img.src = dataUrl;
@@ -93,7 +92,7 @@ function takePic() {
                 //weather.style.display = 'none';
                 //tree.style.display = 'none';
                 //context.drawImage(sky, 0, 0, sky.width, sky.height);
-                console.log("video.videoWidth " + video.videoWidth)
+                //console.log("video.videoWidth " + video.videoWidth)
                 dataURL = canvas1.toDataURL('image/jpeg', .8)
                 blobby = dataURItoBlob(dataURL);
             //     var xhr = new XMLHttpRequest();
@@ -168,7 +167,7 @@ function enableShareBtn() {
 //     console.log('urlToOpen ' + urlToOpen);
 // }
 
-function fbUpload(){
+function fbUpload(token){
   // var dataURL = canvas.toDataURL('image/jpeg', 1.0)
   // var blobby = dataURItoBlob(dataURL);
   var formData = new FormData()
@@ -207,8 +206,10 @@ function dataURItoBlob(dataURI) {
 //
 function login() {
   FB.login(function(response) {
-    console.log(response.userID);
+
+    token = response.authResponse.accessToken;
     if (response.status === 'connected') {
+        console.log(response.authResponse.accessToken);
         document.getElementById('status').innerHTML = 'We are connected.';
         document.getElementById('loginBtn').style.visibility = 'hidden';
       } else if (response.status === 'not_authorized') {

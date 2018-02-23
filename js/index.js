@@ -29,7 +29,6 @@ var weather = document.getElementById("weather");
 var tree = document.getElementById("tree");
 var node1 = document.getElementById('container');
 
-console.log("node1.width " + node1.width);
 //var urlToOpen;
 var formData;
 var dataURL;

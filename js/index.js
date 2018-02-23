@@ -78,10 +78,11 @@ function takePic() {
     context.drawImage(video, 0, 0);
     $('video').remove();
     html2canvas(document.querySelector("#container")).then(canvas => {
-      //$(document.body).html("");
-    document.body.appendChild(canvas)});
+    //$(document.body).html("");
+    //document.body.appendChild(canvas)});
 
-    dataURL = canvas.toDataURL('image/jpeg', .8);
+      dataURL = canvas.toDataURL('image/jpeg', 0.8);
+      //document.location = dataURL;
     blobby = dataURItoBlob(dataURL);
     //             blobby = dataURItoBlob(dataURL);
 
@@ -136,7 +137,8 @@ function takePic() {
     //canvas.src = urlToOpen;
     clicker.style.display = 'none';
     video.style.display = 'none';
-    enableShareBtn();
+      enableShareBtn();
+    });
 
 };
 

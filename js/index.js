@@ -18,7 +18,7 @@ var download = document.getElementById("download");
 var snapShot = document.getElementById("snapShot");
 var thisUser;
 //access token activated on graph explorer for the 'future forecast' app
-var token = "EAAGmcJ787vgBAD7x8F4enC9J5C6EMZAK5GFHvnDZCZCZA0mqx5XgZCFSgDEZBnPZBA4ZAXLjcnIfji4ZCZCirtzp3D0jsZC1fRwisisnkelqU1ZAL9yQmdR6Q6BLqK9jZA6XBM9kZBgM91GMebalQZBHbV5wRv24VA5K0Ss3vQVCUyS0mgz2QZCdzZCRveFV6ZAL9HZBrK0KqE4ZC3ryqnyslBqwHIuknbae";
+var token = "";
 
 
 

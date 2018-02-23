@@ -21,12 +21,12 @@
   <meta property="og:description" content="Looking ahead.." />
   <meta property="og:image" content="https://pbs.twimg.com/media/DWfdjTUX4AAdRqr.jpg:large" /> -->
   <!-- <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# image: http://ogp.me/ns/image#">
- <meta property="fb:app_id" content="302184056577324" />
+ <meta property="fb:app_id" content="302184056577324" />-->
  <meta property="og:type"   content="image.gallery" />
  <meta property="og:url"    content="Put your own URL to the object here" />
  <meta property="og:title"  content="Sample Image.gallery" />
  <meta property="og:image"  content="https://fbstatic-a.akamaihd.net/images/devsite/attachment_blank.png" />
-  <base target="_blank"> -->
+  <!-- <base target="_blank"> -->
   <title>Future Forecast</title>
   <link rel="stylesheet" href="css/style.css">
   <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a8c8281e3b02a00133b2d08&product=inline-share-buttons"></script>
@@ -41,6 +41,8 @@
       //appId: '157775784925663',
       //remote version
       appId            : '464477610635000',
+      //remote version
+      //appId            : '1300335440067028',
       autoLogAppEvents : true,
       xfbml            : true,
       version          : 'v2.12'
@@ -70,13 +72,17 @@
       <img src="images/clicker.png" id="cameraClicker">
       <img src="images/weather.jpg" id="weather">
       <img src="images/shareBtn.jpg" id="shareBtn">
-      <!-- <button class="sharer button" id="shareBtn" data-sharer="facebook" data-url="urlToOpen">Share on Facebook</button> -->
+      <!-- <button class="fb-share-button" id="shareBtn" data-sharer="facebook">Share on Facebook</button> -->
       <!-- <button id="download" onclick="download()">Download</button> -->
       <video id="video" autoplay playsinline ></video>
       <canvas id="shapShot"></canvas>
       <div id="status"></div>
       <button onclick="login()" id="loginBtn">Login</button>
 
+      <!-- <div id="sharePanel">
+
+        <button onclick="login()" id="loginBtn">Login</button>
+      </div> -->
     	<!-- <button onclick="fbUpload()">Upload Photo</button> -->
     <div id="errorMsg">
     </div>
@@ -87,7 +93,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-  <!-- <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script> -->
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 
 
   <!-- Go to www.addthis.com/dashboard to customize your tools -->

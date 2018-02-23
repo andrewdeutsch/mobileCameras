@@ -40,7 +40,7 @@ clicker.addEventListener('click', function () {
     takePic()
 })
 shareBtn.addEventListener('click', function () {
-	fbUpload(token)
+	login();
 })
 // download.onclick = function() {downloadImg()};
 // Put variables in global scope to make them available to the browser console.
@@ -65,7 +65,7 @@ function handleSuccess(stream) {
     sky.style.display = 'block';
     weather.style.display = 'block';
     tree.style.display = 'block';
-    clicker.style.display = 'block';
+    //clicker.style.display = 'block';
 }
 
 
@@ -77,47 +77,55 @@ function takePic() {
 
     context.drawImage(video, 0, 0);
     $('video').remove();
-    domtoimage.draw(node1, {})
-        .then(function(canvas) {
-            //img.src = dataUrl;
-            //context.clearRect(0,0);
-            //$('body').html("").prepend(canvas)
-            canvas.toBlob(function(blob) {
-                //canvas.append(img);
-                //canvas.append(sky);
-                // canvas.append(tree);
-                // canvas.append(weather);
-                //sky.style.display = 'none';
-                //weather.style.display = 'none';
-                //tree.style.display = 'none';
-                //context.drawImage(sky, 0, 0, sky.width, sky.height);
-                //console.log("video.videoWidth " + video.videoWidth)
-                dataURL = canvas1.toDataURL('image/jpeg', .8)
-                blobby = dataURItoBlob(dataURL);
-            //     var xhr = new XMLHttpRequest();
-            //     xhr.open('GET', 'https://d3a4kjxi6e.execute-api.us-east-1.amazonaws.com/prod/movableink-ar-presigned-url', true);
-            //     xhr.onload = function(e) {
-            //         console.log(this.responseText)
-            //         var response = JSON.parse(this.responseText);
-            //         var putXHR = new XMLHttpRequest();
-            //         putXHR.open('PUT', response.putUrl, true);
-            //         putXHR.onload = function(e) {
-            //             console.log(response.putUrl);
-            //         }
-            //         putXHR.send(blob);
-            //         //urlToOpen = response.url;
-            //         dataURL = canvas.toDataURL('image/jpeg', 1.0)
-            //         blobby = dataURItoBlob(dataURL);
-            //
-            //         console.log("urlToOpen " + urlToOpen);
-            //     };
-            //     xhr.send();
-            // }, 'image/jpeg', 0.95)
-          });
-        })
-        .catch(function(error) {
-            console.error('oops, something went wrong!', error);
-        });
+    html2canvas(document.querySelector("#container")).then(canvas => {
+      //$(document.body).html("");
+    document.body.appendChild(canvas)});
+
+    dataURL = canvas.toDataURL('image/jpeg', .8);
+    blobby = dataURItoBlob(dataURL);
+    //             blobby = dataURItoBlob(dataURL);
+
+    // domtoimage.draw(node1, {})
+    //     .then(function(canvas) {
+    //         //img.src = dataUrl;
+    //         //context.clearRect(0,0);
+    //         $('body').html("").prepend(canvas)
+    //         canvas.toBlob(function(blob) {
+    //             //canvas.append(img);
+    //             //canvas.append(sky);
+    //             // canvas.append(tree);
+    //             // canvas.append(weather);
+    //             //sky.style.display = 'none';
+    //             //weather.style.display = 'none';
+    //             //tree.style.display = 'none';
+    //             //context.drawImage(sky, 0, 0, sky.width, sky.height);
+    //             //console.log("video.videoWidth " + video.videoWidth)
+    //             dataURL = canvas1.toDataURL('image/jpeg', .8)
+    //             blobby = dataURItoBlob(dataURL);
+    //         //     var xhr = new XMLHttpRequest();
+    //         //     xhr.open('GET', 'https://d3a4kjxi6e.execute-api.us-east-1.amazonaws.com/prod/movableink-ar-presigned-url', true);
+    //         //     xhr.onload = function(e) {
+    //         //         console.log(this.responseText)
+    //         //         var response = JSON.parse(this.responseText);
+    //         //         var putXHR = new XMLHttpRequest();
+    //         //         putXHR.open('PUT', response.putUrl, true);
+    //         //         putXHR.onload = function(e) {
+    //         //             console.log(response.putUrl);
+    //         //         }
+    //         //         putXHR.send(blob);
+    //         //         //urlToOpen = response.url;
+    //         //         dataURL = canvas.toDataURL('image/jpeg', 1.0)
+    //         //         blobby = dataURItoBlob(dataURL);
+    //         //
+    //         //         console.log("urlToOpen " + urlToOpen);
+    //         //     };
+    //         //     xhr.send();
+    //         // }, 'image/jpeg', 0.95)
+    //       });
+    //     })
+        // .catch(function(error) {
+        //     console.error('oops, something went wrong!', error);
+        // });
     //var c = document.getElementById("canvas");
     // var ctx = canvas.getContext("2d");
     // var img = new Image();
@@ -208,13 +216,16 @@ function login() {
 
     token = response.authResponse.accessToken;
     if (response.status === 'connected') {
+        fbUpload(token)
         console.log(response.authResponse.accessToken);
         document.getElementById('status').innerHTML = 'We are connected.';
-        document.getElementById('loginBtn').style.visibility = 'hidden';
+        //document.getElementById('loginBtn').style.visibility = 'hidden';
       } else if (response.status === 'not_authorized') {
         document.getElementById('status').innerHTML = 'We are not logged in.'
+        document.getElementById('loginBtn').style.display = 'block';
       } else {
         document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+        document.getElementById('loginBtn').style.display = 'block';
       }
   }, {scope: 'publish_actions'});
 }

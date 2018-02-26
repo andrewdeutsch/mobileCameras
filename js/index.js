@@ -76,7 +76,6 @@ function handleSuccess(stream) {
     sky.style.display = 'block';
     weather.style.display = 'block';
     tree.style.display = 'block';
-    nameTag.style.display = 'block';
 }
 
 

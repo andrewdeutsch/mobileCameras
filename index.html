@@ -9,26 +9,22 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="WebRTC code samples">
   <meta name="viewport" content="width=device-width, height=device-height, user-scalable=yes, initial-scale=1, maximum-scale=1">
 
   <!-- <meta itemprop="image" content="../../../images/webrtc-icon-192x192.png"> -->
-  <meta itemprop="name" content="WebRTC code samples">
   <meta name="mobile-web-app-capable" content="yes">
   <meta id="theme-color" name="theme-color" content="#ffffff">
-  <!-- <meta property="og:type" content="image" />
+  <meta property="og:type" content="image" />
   <meta property="og:title" content="Future Forecast" />
   <meta property="og:description" content="Looking ahead.." />
-  <meta property="og:image" content="https://pbs.twimg.com/media/DWfdjTUX4AAdRqr.jpg:large" /> -->
+  <!-- <meta property="og:image" content="https://pbs.twimg.com/media/DWfdjTUX4AAdRqr.jpg:large" /> -->
   <!-- <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# image: http://ogp.me/ns/image#">
  <meta property="fb:app_id" content="302184056577324" />-->
- <meta property="og:type"   content="image.gallery" />
- <meta property="og:url"    content="Put your own URL to the object here" />
- <meta property="og:title"  content="Sample Image.gallery" />
- <meta property="og:image"  content="https://fbstatic-a.akamaihd.net/images/devsite/attachment_blank.png" />
   <!-- <base target="_blank"> -->
   <title>Future Forecast</title>
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
   <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a8c8281e3b02a00133b2d08&product=inline-share-buttons"></script>
 
 </head>
@@ -38,9 +34,9 @@
   window.fbAsyncInit = function() {
     FB.init({
       //local version
-      //appId: '157775784925663',
+      appId: '157775784925663',
       //remote version
-      appId            : '464477610635000',
+      //appId            : '464477610635000',
       //remote version
       //appId            : '1300335440067028',
       autoLogAppEvents : true,
@@ -64,40 +60,41 @@
 
     <div id="container">
 
-      <!-- <div class="sharethis-inline-share-buttons" id="sharethis-inline-share-buttons"></div> -->
       <img src="images/sky.png" id="sky">
       <img src="images/tree.png" id="tree">
-      <!-- <img src="images/monuments.png" id="monument"> -->
-      <!-- <button onclick="takePic()" class="image2">Click me</button> -->
       <img src="images/clicker.png" id="cameraClicker">
+      <img src="images/nameTag.jpg" id="nameTag">
       <img src="images/weather.jpg" id="weather">
-      <img src="images/shareBtn.jpg" id="shareBtn">
-      <!-- <button class="fb-share-button" id="shareBtn" data-sharer="facebook">Share on Facebook</button> -->
-      <!-- <button id="download" onclick="download()">Download</button> -->
+
+
       <video id="video" autoplay playsinline ></video>
       <canvas id="shapShot"></canvas>
       <div id="status"></div>
-      <button onclick="login()" id="loginBtn">Login</button>
 
-      <!-- <div id="sharePanel">
+      <!-- share now cta -->
+      <div id="block">
+        <div id="shareText">SHARE YOUR FUTURE FORECAST</div>
+        <img src="images/fb.png" id="fbLogo">
+        <img src="images/twitter.png" id="twitterLogo">
+        <div id="cancelText">CANCEL</div>
+        <button onclick="login()" class="fb-share-button" id="loginBtn">Login</button>
+      </div>
+      <div id="errorMsg">
+      </div>
 
-        <button onclick="login()" id="loginBtn">Login</button>
-      </div> -->
-    	<!-- <button onclick="fbUpload()">Upload Photo</button> -->
-    <div id="errorMsg">
-    </div>
+
   <script src="js/index.js"></script>
   <script src="js/canvas-to-blob.js"></script>
   <script src="js/dom-to-image.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script> -->
+  <!-- <script src="js/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script> -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+  <!-- <script src="js/html2canvas.js"></script> -->
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 
-
-  <!-- Go to www.addthis.com/dashboard to customize your tools -->
-  <!-- <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a8c8127549aa593"></script> -->
 
 </body>
 </html>

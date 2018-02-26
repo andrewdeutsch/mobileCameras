@@ -1,3 +1,41 @@
+#block {
+  text-align: center;
+  z-index: 4;
+  position: fixed;
+  bottom: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 24%;
+  background-color: red;
+  display: none;
+}
+#block:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+ }
+ #cameraClicker{
+   left:32%;
+   bottom: 23%;
+   width: 40%;
+   z-index: 4;
+   display: block;
+   position: fixed;
+ }
+ #cancelText {
+   margin-left: auto;
+   margin-right: auto
+   padding-top: 10%;
+   padding-bottom: 15%;
+   font-family: 'Open Sans 600', sans-serif;
+   font-weight: 400;
+   color: white;
+   font-size: .8em;
+   position: relative;
+   text-decoration: underline;
+ }
 #container {
   position: absolute;
   top:0;
@@ -5,10 +43,50 @@
   height: 100%;
   width: 100%;
 }
-.warning {
-  color: red;
-  font-weight: 400;
-  visibility: hidden;
+#download{
+  display: none;
+  bottom: 20%;
+  left: 42%;
+  width: 20%;
+  z-index: 4;
+  position: absolute;
+  height: 20%;
+}
+#fbLogo {
+  display: inline-block;
+  width: 15%;
+  padding-right: 7%;
+  position: relative;
+  padding-bottom: 2.25%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#loginBtn {
+  width: 70%;
+  height: 30%;
+  font-size: 1.25em;
+  left: 15%;
+  bottom: -60%;
+  z-index: 5;
+  display: none;
+  position: relative;
+}
+#monument{
+  left:0px;
+  max-width: 100%;
+  bottom: 8%;
+  z-index: 2;
+  display: none;
+  position: fixed;
+}
+#shareBtn {
+  max-width: 70%;
+  display: none;
+  padding-left: 15%;
+  bottom: 20%;
+  z-index: 4;
+  position: fixed;
 }
 
 #sharethis-inline-share-buttons{
@@ -24,48 +102,22 @@
   width: 40%;
   height: 20%;
 }
-#sharePanel {
-  z-index:3;
-  position: fixed;
-  left:38%;
-  bottom: 20%;
-  width: 40%;
-  height: 20%;
-  background-color: red;
-}
-#loginBtn {
-  width: 70%;
-  height: 30%;
-  font-size: 1.25em;
-  left: 15%;
-  bottom: -60%;
-  z-index: 5;
-  display: none;
+#shareText {
+  margin-left:0.2em;
+  padding-bottom: 3%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: white;
+  font-size: 16pt;
   position: relative;
 }
 #sky{
   width: 100%;
   left:0;
   top:0;
-  z-index: 2;
-  position: fixed;
-  display: none;
-}
-#cameraClicker{
-  left:32%;
-  bottom: 18%;
-  width: 40%;
   z-index: 4;
-  display: block;
   position: fixed;
-}
-#monument{
-  left:0px;
-  max-width: 100%;
-  bottom: 8%;
-  z-index: 2;
   display: none;
-  position: fixed;
 }
 #weather {
   display: none;
@@ -75,46 +127,30 @@
   z-index: 3;
   position: fixed;
 }
+#nameTag {
+  display: none;
+  width: 100%;
+  left:0;
+  top: 13%;
+  z-index: 2;
+  position: relative;
+}
+
+#landscapeMode {
+ @media screen and (orientation: landscape) {
+   display:block;
+   background-color: black;
+   color: white;
+ }
+}
 
 #tree {
   display: block;
-  width: 40%;
+  width: 50%;
   left: 0;
   bottom: 12%;
   z-index: 2;
   position: fixed;
-}
-
-#shareBtn {
-  max-width: 70%;
-  display: none;
-  padding-left: 15%;
-  bottom: 20%;
-  z-index: 4;
-  position: fixed;
-}
-
-
-#video {
-  min-width: 100%;
-  min-height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 0;
-  overflow: hidden;
-  z-index: 1;
-  display: block;
-}
-
-#download{
-  display: none;
-  bottom: 20%;
-  left: 42%;
-  width: 20%;
-  z-index: 4;
-  position: absolute;
-  height: 20%;
 }
 
 #shapShot {
@@ -131,4 +167,53 @@
 #status {
   z-index:4;
   position:relative;
+}
+#twitterLogo {
+  display: inline-block;
+  width: 15%;
+  position: relative;
+  padding-bottom: 2.25%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#video {
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: 1;
+  display: block;
+}
+.warning {
+  color: red;
+  font-weight: 400;
+  visibility: hidden;
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+#cancelText {
+  margin-left: auto;
+  margin-right: auto
+  font-family: 'Open Sans 600', sans-serif;
+  font-weight: 400;
+  color: white;
+  font-size: 1.2em;
+  position: relative;
+  text-decoration: underline;
+}
+#shareText {
+  margin-left:0.2em;
+  padding-bottom: 2%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: white;
+  font-size: 22pt;
+  position: relative;
+}
 }

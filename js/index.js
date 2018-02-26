@@ -12,35 +12,41 @@ var errorElement = document.querySelector('#errorMsg');
 var video = document.getElementById('video');
 var canvas1 = window.canvas = document.querySelector('canvas');
 var clicker = document.getElementById("cameraClicker");
-var sky = document.getElementById("sky");
 var shareBtn = document.getElementById("shareBtn");
 var download = document.getElementById("download");
 var snapShot = document.getElementById("snapShot");
+var block = document.getElementById('block');
+var fbLogo = document.getElementById('fbLogo');
+var twitterLogo = document.getElementById('twitterLogo');
+var cancelText = document.getElementById('cancelText');
+var weather = document.getElementById("weather");
+var tree = document.getElementById("tree");
+var node1 = document.getElementById('container');
+var sky = document.getElementById("sky");
+var nameTag = document.getElementById("nameTag");
+
 var thisUser;
 //access token activated on graph explorer for the 'future forecast' app
 var token = "";
 
-
-
 var context = canvas1.getContext('2d');
 
-//var monument = document.getElementById("monument");
-var weather = document.getElementById("weather");
-var tree = document.getElementById("tree");
-var node1 = document.getElementById('container');
-
-//var urlToOpen;
 var formData;
 var dataURL;
 var blobby;
 // canvas.width = 480;
 // canvas.height = 360;
 clicker.addEventListener('click', function () {
-    //fbUpload(token)
     takePic()
 })
-shareBtn.addEventListener('click', function () {
+fbLogo.addEventListener('click', function () {
 	login();
+})
+twitterLogo.addEventListener('click', function () {
+	//login();
+})
+cancelText.addEventListener('click', function () {
+	resetClicker();
 })
 // download.onclick = function() {downloadImg()};
 // Put variables in global scope to make them available to the browser console.
@@ -49,7 +55,13 @@ var constraints = window.constraints = {
     video: true
 };
 
-
+function resetClicker(){
+  block.style.display = 'none';
+  clicker.style.display = 'block';
+  canvas1.style.display = 'none';
+  $("video").prop('disabled', false);
+  video.style.display = 'block';
+}
 function handleSuccess(stream) {
     var videoTracks = stream.getVideoTracks();
     console.log('Got stream with constraints:', constraints);
@@ -61,147 +73,55 @@ function handleSuccess(stream) {
     };
     window.stream = stream; // make variable available to browser console
     video.srcObject = stream;
-    //monument.style.display = 'block';
     sky.style.display = 'block';
     weather.style.display = 'block';
     tree.style.display = 'block';
-    //clicker.style.display = 'block';
+    nameTag.style.display = 'block';
 }
 
 
 function takePic() {
+    canvas1.style.display = 'block';
     canvas1.width = video.videoWidth;
     canvas1.height = video.videoHeight;
-    //var skyWidth = 100%;
-    //var skyHeight = 100%;
 
-    context.drawImage(video, 0, 0);
-    $('video').remove();
-    html2canvas(document.querySelector("#container")).then(canvas => {
-    //$(document.body).html("");
-    //document.body.appendChild(canvas)});
-
-      dataURL = canvas.toDataURL('image/jpeg', 0.8);
-      //document.location = dataURL;
-    blobby = dataURItoBlob(dataURL);
-    //             blobby = dataURItoBlob(dataURL);
-
-    // domtoimage.draw(node1, {})
-    //     .then(function(canvas) {
-    //         //img.src = dataUrl;
-    //         //context.clearRect(0,0);
-    //         $('body').html("").prepend(canvas)
-    //         canvas.toBlob(function(blob) {
-    //             //canvas.append(img);
-    //             //canvas.append(sky);
-    //             // canvas.append(tree);
-    //             // canvas.append(weather);
-    //             //sky.style.display = 'none';
-    //             //weather.style.display = 'none';
-    //             //tree.style.display = 'none';
-    //             //context.drawImage(sky, 0, 0, sky.width, sky.height);
-    //             //console.log("video.videoWidth " + video.videoWidth)
-    //             dataURL = canvas1.toDataURL('image/jpeg', .8)
-    //             blobby = dataURItoBlob(dataURL);
-    //         //     var xhr = new XMLHttpRequest();
-    //         //     xhr.open('GET', 'https://d3a4kjxi6e.execute-api.us-east-1.amazonaws.com/prod/movableink-ar-presigned-url', true);
-    //         //     xhr.onload = function(e) {
-    //         //         console.log(this.responseText)
-    //         //         var response = JSON.parse(this.responseText);
-    //         //         var putXHR = new XMLHttpRequest();
-    //         //         putXHR.open('PUT', response.putUrl, true);
-    //         //         putXHR.onload = function(e) {
-    //         //             console.log(response.putUrl);
-    //         //         }
-    //         //         putXHR.send(blob);
-    //         //         //urlToOpen = response.url;
-    //         //         dataURL = canvas.toDataURL('image/jpeg', 1.0)
-    //         //         blobby = dataURItoBlob(dataURL);
-    //         //
-    //         //         console.log("urlToOpen " + urlToOpen);
-    //         //     };
-    //         //     xhr.send();
-    //         // }, 'image/jpeg', 0.95)
-    //       });
-    //     })
-        // .catch(function(error) {
-        //     console.error('oops, something went wrong!', error);
-        // });
-    //var c = document.getElementById("canvas");
-    // var ctx = canvas.getContext("2d");
-    // var img = new Image();
-    // img.onload = function() {
-    //   ctx.drawImage(img, 0, 0);
-    // };
-    // img.src = urlToOpen;
-    //canvas.src = urlToOpen;
     clicker.style.display = 'none';
+    context.drawImage(video, 0, 0);
+    $("video").prop('disabled', true);
+    //$('video').remove();
+    html2canvas(document.querySelector("#container")).then(canvas => {
+
+    dataURL = canvas.toDataURL('image/jpeg', 0.8);
+    blobby = dataURItoBlob(dataURL);
+
     video.style.display = 'none';
-      enableShareBtn();
+
+    enableShareBtn();
     });
 
 };
 
 function enableShareBtn() {
     window.setTimeout(function() {
-        shareBtn.style.display = 'block';
-        // sky.style.display = 'none';
-        // weather.style.display = 'none';
-        // tree.style.display = 'none';
-        //shareButtons.style.display = 'block';
-        //download.style.display = 'block';
+        //shareBtn.style.display = 'block';
+        block.style.display = 'block';
+
     }, 250);
 
 }
 
 
-// function loadImg() {
-//
-//     FB.ui({
-//         method: 'share_open_graph',
-//         action_type: 'og.shares',
-//         action_properties: JSON.stringify({
-//             object: {
-//                 'og:url': urlToOpen,
-//                 'og:title': 'Future Forecast',
-//                 'og:description': "Me, soon.",
-//                 'og:image': urlToOpen,
-//                 'og:og:image:width': '733',
-//                 'og:image:height': '1440'
-//             }
-//         })
-//     });
-
-
-//     console.log('urlToOpen ' + urlToOpen);
-// }
-
 function fbUpload(token){
-  // var dataURL = canvas.toDataURL('image/jpeg', 1.0)
-  // var blobby = dataURItoBlob(dataURL);
   var formData = new FormData()
   formData.append('access_token', token)
   formData.append('source', blobby)
   formData.append('message', 'Check out my Future Forecast! Get yours at https://www.futureforecast.com');
-  // for (var pair of formData.entries()) {
-  //   console.log("FORM DATA " + pair[0]+ ', ' + pair[1]);
-  // }
-  //console.log(urlToOpen);
   var xhr = new XMLHttpRequest();
   xhr.open( 'POST', 'https://graph.facebook.com/me/photos', true )
   xhr.onload = xhr.onerror = function() {
-    console.log( xhr.responseText )
+    //console.log( xhr.responseText )
   };
   xhr.send( formData )
-
-  // FB.api('/me/photos', 'post', {source: formData}, function(response) {
-  //   if (!response || response.error) {
-  //     document.getElementById('status').innerHTML = "Errooor!";
-  //     console.log(response.error);
-  //   } else {
-  //     document.getElementById('status').innerHTML = response.id;
-  //   }
-  // });
 }
 
 function dataURItoBlob(dataURI) {
@@ -215,12 +135,11 @@ function dataURItoBlob(dataURI) {
 //
 function login() {
   FB.login(function(response) {
-
     token = response.authResponse.accessToken;
     if (response.status === 'connected') {
         fbUpload(token)
         console.log(response.authResponse.accessToken);
-        document.getElementById('status').innerHTML = 'We are connected.';
+        //document.getElementById('status').innerHTML = 'We are connected.';
         //document.getElementById('loginBtn').style.visibility = 'hidden';
       } else if (response.status === 'not_authorized') {
         document.getElementById('status').innerHTML = 'We are not logged in.'

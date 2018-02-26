@@ -54,7 +54,7 @@
 }
 #fbLogo {
   display: inline-block;
-  width: 15%;
+  width: 12%;
   padding-right: 7%;
   position: relative;
   padding-bottom: 2.25%;
@@ -139,7 +139,7 @@
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   color: white;
-  font-size: 16pt;
+  font-size: 11pt;
   position: relative;
 }
 #sky{
@@ -193,7 +193,7 @@
 }
 #twitterLogo {
   display: inline-block;
-  width: 15%;
+  width: 12%;
   position: relative;
   padding-bottom: 2.25%;
   margin-left: auto;

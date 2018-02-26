@@ -59,6 +59,7 @@ function resetClicker(){
   block.style.display = 'none';
   clicker.style.display = 'block';
   canvas1.style.display = 'none';
+  successText.style.display = 'none';
   $("video").prop('disabled', false);
   video.style.display = 'block';
 }
@@ -86,6 +87,7 @@ function takePic() {
     canvas1.height = video.videoHeight;
 
     clicker.style.display = 'none';
+
     context.drawImage(video, 0, 0);
     $("video").prop('disabled', true);
     //$('video').remove();
@@ -105,7 +107,8 @@ function enableShareBtn() {
     window.setTimeout(function() {
         //shareBtn.style.display = 'block';
         block.style.display = 'block';
-
+        shareText.style.display = 'block';
+        document.getElementById('cancelText').innerHTML = 'CANCEL'
     }, 250);
 
 }
@@ -139,7 +142,10 @@ function login() {
     if (response.status === 'connected') {
         fbUpload(token)
         console.log(response.authResponse.accessToken);
-        //document.getElementById('status').innerHTML = 'We are connected.';
+        document.getElementById('successText').innerHTML = 'NICE. YOUR FUTURE FORECAST IS POSTED.';
+        document.getElementById('cancelText').innerHTML = 'CLICK HERE TO TAKE ANOTHER PIC'
+        successText.style.display = 'block';
+        shareText.style.display = 'none';
         //document.getElementById('loginBtn').style.visibility = 'hidden';
       } else if (response.status === 'not_authorized') {
         document.getElementById('status').innerHTML = 'We are not logged in.'

@@ -5,7 +5,7 @@
   bottom: 42%;
   right: 32%;
   width: 40%;
-  height: 20%;
+  height: 35%;
   /* margin-left: auto;
   margin-right: auto; */
   background-color: #e01933;
@@ -19,7 +19,7 @@
  }
 #cameraClicker{
  left:40%;
- bottom: 30%;
+ bottom: 34%;
  width: 23%;
  z-index: 4;
  display: block;
@@ -55,7 +55,7 @@
 }
 #fbLogo {
   display: inline-block;
-  width: 45%;
+  width: 35%;
   position: relative;
   padding-bottom: 8%;
   margin-left: auto;

@@ -7,7 +7,7 @@
  */
 'use strict';
 
-var shareButtons = document.getElementById('sharethis-inline-share-buttons');
+
 var errorElement = document.querySelector('#errorMsg');
 var video = document.getElementById('video');
 var canvas1 = window.canvas = document.querySelector('canvas');
@@ -24,6 +24,7 @@ var tree = document.getElementById("tree");
 var node1 = document.getElementById('container');
 var sky = document.getElementById("sky");
 var nameTag = document.getElementById("nameTag");
+var sand = document.getElementById("sand");
 
 var thisUser;
 //access token activated on graph explorer for the 'future forecast' app
@@ -42,9 +43,10 @@ clicker.addEventListener('click', function () {
 fbLogo.addEventListener('click', function () {
 	login();
 })
-twitterLogo.addEventListener('click', function () {
-	//login();
-})
+// twitterLogo.addEventListener('click', function () {
+// 	//login();
+//   tweetTest();
+// })
 cancelText.addEventListener('click', function () {
 	resetClicker();
 })
@@ -78,6 +80,7 @@ function handleSuccess(stream) {
     weather.style.display = 'block';
     tree.style.display = 'block';
     nameTag.style.display = 'block';
+    sand.style.display = 'block';
 }
 
 
@@ -139,11 +142,13 @@ function dataURItoBlob(dataURI) {
 function login() {
   FB.login(function(response) {
     token = response.authResponse.accessToken;
+    //userID = response.authResponse.userID;
     if (response.status === 'connected') {
         fbUpload(token)
-        console.log(response.authResponse.accessToken);
+        var uid = response.authResponse.userID;
+        console.log("https://www.facebook.com/"+uid);
         document.getElementById('successText').innerHTML = 'NICE. YOUR FUTURE FORECAST IS POSTED.';
-        document.getElementById('cancelText').innerHTML = 'CLICK HERE TO TAKE ANOTHER PIC'
+        document.getElementById('cancelText').innerHTML = ''
         successText.style.display = 'block';
         shareText.style.display = 'none';
         //document.getElementById('loginBtn').style.visibility = 'hidden';
@@ -177,3 +182,57 @@ function errorMsg(msg, error) {
 
 navigator.mediaDevices.getUserMedia(constraints).
 then(handleSuccess).catch(handleError);
+
+
+
+var API = {
+    UPDATE_WITH_MEDIA : "https://api.twitter.com/1.1/statuses/update_with_media.json"
+};
+
+function oAuthConfig() {
+    var oAuthConfig = UrlFetchApp.addOAuthService("twitter");
+
+    oAuthConfig.setAccessTokenUrl("https://api.twitter.com/oauth/access_token");
+    oAuthConfig.setRequestTokenUrl("https://api.twitter.com/oauth/request_token");
+    oAuthConfig.setAuthorizationUrl("https://api.twitter.com/oauth/authorize");
+
+    oAuthConfig.setConsumerKey(ScriptProperties.getProperty("consumer_key"));
+    oAuthConfig.setConsumerSecret(ScriptProperties.getProperty("consumer_secret"));
+}
+
+function postImage(tweetText, blobby) {
+    oAuthConfig();
+
+    var boundary = "cuthere",
+        status   = tweetText,
+        picture  = blobby;
+        // picture  = UrlFetchApp.fetch(imageUrl).getBlob().setContentTypeFromExtension(),
+        // requestBody, options, request;
+
+    requestBody = Utilities.newBlob("--" + boundary + "\r\n" +
+        "Content-Disposition: form-data; name=\"status\"\r\n\r\n" + status + "\r\n" +
+        "--" + boundary + "\r\n" +
+        "Content-Disposition: form-data; name=\"media[]\"; filename=\"" + picture.getName() + "\"\r\n" +
+        "Content-Type: " + picture.getContentType() + "\r\n\r\n"
+    ).getBytes();
+
+    requestBody = requestBody.concat(picture.getBytes());
+    requestBody = requestBody.concat(Utilities.newBlob("\r\n--" + boundary + "--\r\n").getBytes());
+
+    options = {
+        oAuthServiceName : "twitter",
+        oAuthUseToken    : "always",
+        method           : "POST",
+        contentType      : "multipart/form-data; boundary=" + boundary,
+        payload          : requestBody
+    };
+
+    return UrlFetchApp.fetch(API.UPDATE_WITH_MEDIA, options);
+}
+
+function tweetTest() {
+    var tweetText = "I can look into the future. nbd.",
+        imageUrl  = "http://blog-imgs-38.FC2.com/n/e/n/nenesoku/120ebf562bdd2446fbf8459b3e6265e7.jpg";
+
+    postImage(tweetText, imageUrl);
+}

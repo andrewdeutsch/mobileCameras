@@ -34,9 +34,9 @@
   window.fbAsyncInit = function() {
     FB.init({
       //local version
-      //appId: '157775784925663',
+      appId: '157775784925663',
       //remote version
-      appId            : '464477610635000',
+      //appId            : '464477610635000',
       //remote version
       //appId            : '1300335440067028',
       autoLogAppEvents : true,
@@ -61,7 +61,8 @@
       <div id="landscapeText">Rotate your phone to play.</div>
     </div>
     <div id="container">
-      <img src="images/sky.png" id="sky">
+      <canvas id="weatherAnim"></canvas>
+      <img src="images/cloudy.png" id="sky">
       <img src="images/tree.png" id="tree">
       <img src="images/clicker.png" id="cameraClicker">
       <img src="images/nameTag.jpg" id="nameTag">
@@ -87,6 +88,7 @@
 
 
   <script src="js/index.js"></script>
+  <script src="js/snow.js"></script>
   <script src="js/canvas-to-blob.js"></script>
   <script src="js/dom-to-image.js"></script>
   <!-- <script src="js/jquery-3.3.1.min.js"
